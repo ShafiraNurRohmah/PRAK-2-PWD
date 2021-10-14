@@ -1,0 +1,77 @@
+Setting environment for using XAMPP for Windows.
+Asus@LAPTOP-KJ4CKDF3 c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 146
+Server version: 10.4.21-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database Akademik;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| akademik           |
+| db_perpustakaan    |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [(none)]> use Akademik;
+Database changed
+MariaDB [Akademik]> CREATE TABLE Mahasiswa (
+    -> NIM int NOT NULL AUTO_INCREMENT,
+    -> NAMA varchar(255) NOT NULL,
+    -> JK varchar(255) NOT NULL,
+    -> ALAMAT text NOT NULL,
+    -> TGL_LAHIR date,
+    -> PRIMARY KEY(NIM)
+    -> );
+Query OK, 0 rows affected (0.035 sec)
+
+MariaDB [Akademik]> show tables;
++--------------------+
+| Tables_in_akademik |
++--------------------+
+| mahasiswa          |
++--------------------+
+1 row in set (0.001 sec)
+
+MariaDB [Akademik]> INSERT INTO Mahasiswa VALUES
+    -> (1800018216, 'TRY','PEREMPUAN','TAMANAN','2000-01-16'),
+    -> (1800018224, 'SHAFIRA','PEREMPUAN','BANGUNTAPAN','2000-05-05'),
+    -> (1800018226, 'ALDIMAS','LAKI-LAKI','MAGETAN','2000-06-15'),
+    -> (1800018221, 'DARLIAN','LAKI-LAKI','PASURUAN','2000-12-14'),
+    -> (1800018227, 'EKA','PEREMPUAN','BANTUL','2000-01-23');
+Query OK, 5 rows affected (0.010 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [Akademik]> select * from Mahasiswa;
++------------+---------+-----------+-------------+------------+
+| NIM        | NAMA    | JK        | ALAMAT      | TGL_LAHIR  |
++------------+---------+-----------+-------------+------------+
+| 1800018216 | TRY     | PEREMPUAN | TAMANAN     | 2000-01-16 |
+| 1800018221 | DARLIAN | LAKI-LAKI | PASURUAN    | 2000-12-14 |
+| 1800018224 | SHAFIRA | PEREMPUAN | BANGUNTAPAN | 2000-05-05 |
+| 1800018226 | ALDIMAS | LAKI-LAKI | MAGETAN     | 2000-06-15 |
+| 1800018227 | EKA     | PEREMPUAN | BANTUL      | 2000-01-23 |
++------------+---------+-----------+-------------+------------+
+5 rows in set (0.001 sec)
+
+MariaDB [Akademik]> select * from Mahasiswa WHERE NAMA = 'SHAFIRA';
++------------+---------+-----------+-------------+------------+
+| NIM        | NAMA    | JK        | ALAMAT      | TGL_LAHIR  |
++------------+---------+-----------+-------------+------------+
+| 1800018224 | SHAFIRA | PEREMPUAN | BANGUNTAPAN | 2000-05-05 |
++------------+---------+-----------+-------------+------------+
+1 row in set (0.001 sec)
