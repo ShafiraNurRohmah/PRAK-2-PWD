@@ -1,0 +1,85 @@
+MariaDB [Akademik]> ALTER TABLE Mahasiswa ADD Semester varchar(255);
+Query OK, 0 rows affected (0.033 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [Akademik]> select * from Mahasiswa;
++------------+---------+-----------+-------------+------------+----------+
+| NIM        | NAMA    | JK        | ALAMAT      | TGL_LAHIR  | Semester |
++------------+---------+-----------+-------------+------------+----------+
+| 1800018216 | TRY     | PEREMPUAN | TAMANAN     | 2000-01-16 | NULL     |
+| 1800018221 | DARLIAN | LAKI-LAKI | PASURUAN    | 2000-12-14 | NULL     |
+| 1800018224 | SHAFIRA | PEREMPUAN | BANGUNTAPAN | 2000-05-05 | NULL     |
+| 1800018226 | ALDIMAS | LAKI-LAKI | MAGETAN     | 2000-06-15 | NULL     |
+| 1800018227 | EKA     | PEREMPUAN | BANTUL      | 2000-01-23 | NULL     |
++------------+---------+-----------+-------------+------------+----------+
+5 rows in set (0.001 sec)
+
+MariaDB [Akademik]> INSERT INTO Mahasiswa VALUES
+    -> (2000020111, 'PUTRI','PEREMPUAN','JAWA BARAT','2001-01-01','5'),
+    -> (2100021222, 'REZA','LAKI-LAKI','JAKARTA','2002-02-02','3');
+Query OK, 2 rows affected (0.009 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [Akademik]> select * from Mahasiswa;
++------------+---------+-----------+-------------+------------+----------+
+| NIM        | NAMA    | JK        | ALAMAT      | TGL_LAHIR  | Semester |
++------------+---------+-----------+-------------+------------+----------+
+| 1800018216 | TRY     | PEREMPUAN | TAMANAN     | 2000-01-16 | NULL     |
+| 1800018221 | DARLIAN | LAKI-LAKI | PASURUAN    | 2000-12-14 | NULL     |
+| 1800018224 | SHAFIRA | PEREMPUAN | BANGUNTAPAN | 2000-05-05 | NULL     |
+| 1800018226 | ALDIMAS | LAKI-LAKI | MAGETAN     | 2000-06-15 | NULL     |
+| 1800018227 | EKA     | PEREMPUAN | BANTUL      | 2000-01-23 | NULL     |
+| 2000020111 | PUTRI   | PEREMPUAN | JAWA BARAT  | 2001-01-01 | 5        |
+| 2100021222 | REZA    | LAKI-LAKI | JAKARTA     | 2002-02-02 | 3        |
++------------+---------+-----------+-------------+------------+----------+
+7 rows in set (0.001 sec)
+
+MariaDB [Akademik]> UPDATE Mahasiswa SET Semester = '9' WHERE NAMA = 'TRY';
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Akademik]> UPDATE Mahasiswa SET Semester = '8' WHERE NAMA = 'DARLIAN';
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Akademik]> UPDATE Mahasiswa SET Semester = '7' WHERE NAMA = 'SHAFIRA';
+Query OK, 1 row affected (0.002 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Akademik]> UPDATE Mahasiswa SET Semester = '8' WHERE NAMA = 'ALDIMAS';
+Query OK, 1 row affected (0.002 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Akademik]> UPDATE Mahasiswa SET Semester = '9' WHERE NAMA = 'EKA';
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [Akademik]> select * from Mahasiswa;
++------------+---------+-----------+-------------+------------+----------+
+| NIM        | NAMA    | JK        | ALAMAT      | TGL_LAHIR  | Semester |
++------------+---------+-----------+-------------+------------+----------+
+| 1800018216 | TRY     | PEREMPUAN | TAMANAN     | 2000-01-16 | 9        |
+| 1800018221 | DARLIAN | LAKI-LAKI | PASURUAN    | 2000-12-14 | 8        |
+| 1800018224 | SHAFIRA | PEREMPUAN | BANGUNTAPAN | 2000-05-05 | 7        |
+| 1800018226 | ALDIMAS | LAKI-LAKI | MAGETAN     | 2000-06-15 | 8        |
+| 1800018227 | EKA     | PEREMPUAN | BANTUL      | 2000-01-23 | 9        |
+| 2000020111 | PUTRI   | PEREMPUAN | JAWA BARAT  | 2001-01-01 | 5        |
+| 2100021222 | REZA    | LAKI-LAKI | JAKARTA     | 2002-02-02 | 3        |
++------------+---------+-----------+-------------+------------+----------+
+7 rows in set (0.001 sec)
+
+MariaDB [Akademik]> DELETE from Mahasiswa WHERE NAMA = 'REZA';
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [Akademik]> select * from Mahasiswa;
++------------+---------+-----------+-------------+------------+----------+
+| NIM        | NAMA    | JK        | ALAMAT      | TGL_LAHIR  | Semester |
++------------+---------+-----------+-------------+------------+----------+
+| 1800018216 | TRY     | PEREMPUAN | TAMANAN     | 2000-01-16 | 9        |
+| 1800018221 | DARLIAN | LAKI-LAKI | PASURUAN    | 2000-12-14 | 8        |
+| 1800018224 | SHAFIRA | PEREMPUAN | BANGUNTAPAN | 2000-05-05 | 7        |
+| 1800018226 | ALDIMAS | LAKI-LAKI | MAGETAN     | 2000-06-15 | 8        |
+| 1800018227 | EKA     | PEREMPUAN | BANTUL      | 2000-01-23 | 9        |
+| 2000020111 | PUTRI   | PEREMPUAN | JAWA BARAT  | 2001-01-01 | 5        |
++------------+---------+-----------+-------------+------------+----------+
+6 rows in set (0.001 sec)
